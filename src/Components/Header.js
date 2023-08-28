@@ -1,6 +1,6 @@
 import React from 'react'
-import FoodStoreLogo from "../../assets/FoodStoreLogo.jpg"
-import {NavBarTop} from "../NavBar"
+import FoodStoreLogo from "../assets/FoodStoreLogo.jpg"
+import {NavBarTop} from "./NavBar"
 
 
 const Header = () => {

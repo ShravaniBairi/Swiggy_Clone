@@ -1,18 +1,44 @@
 
+
 import './App.css';
-import Header from './Components/Header/Header';
-import Body from './Components/Body/Body';
-import Footer from  './Components/Footer/Footer';
+import Header from './Components/Header';
+import Body from './Components/Body';
+import Footer from  './Components/Footer';
+import Help from "./Components/Help"
+import {createBrowserRouter, Outlet} from "react-router-dom"
 
 
 function App() {
   return (
     <div >
       <Header />
-      <Body />
+      <Outlet />
       <Footer />
     </div>
   );
 }
 
-export default App;
+const AppLayout = createBrowserRouter(
+  [
+    {
+      path: "/",
+      element: <App/>,
+      children : [
+        {
+          path:"/",
+          element: <Body/>,
+        },
+        {
+          path: "/Help",
+          element: <Help/>
+        }
+      ]
+    },
+    
+  ]
+)
+
+
+
+
+export default AppLayout;
