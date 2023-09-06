@@ -1,6 +1,7 @@
 import React from 'react'
 import {useState, useEffect} from "react";
 import Shimmer from "./Shimmer"
+import { Link } from 'react-router-dom';
 
 import {filterRestuarants} from "../utils/Helper"
 import RestuarantCard from "./RestuarantCard"
@@ -45,13 +46,15 @@ const Body = () => {
   
 
 
-  if(!listOfRestuarants) return null;
+  if(!listOfRestuarants) return <Shimmer />;
 
   if(listOfRestuarants?.length === 0)
     return <Shimmer />
 
   if(filteredListOfRestuarants?.length === 0)
       return <h1>No Restuarant Matches with the text entered by you....keep trying</h1>
+
+
   return (listOfRestuarants?.length === 0) ? <Shimmer /> : (
     <div>
       <div className=" sm:grid-cols-2 md:flex md:flex-row md:mx-96 mx-10 my-8 items-center ">
@@ -66,11 +69,11 @@ const Body = () => {
       }>Search </button>
       </div>
       
-      <div className= "flex flex-wrap place-content-center  mx-2 md:mx-10  grid-cols-2  lg:mx-40">
+      <div className= "flex flex-wrap place-content-center  mx-2 md:mx-10  grid-cols-2  lg:mx-40" >
         {
           filteredListOfRestuarants.map((restuarants) => {
             return(
-              <RestuarantCard {...restuarants?.info} />
+              <Link to= {"/RestuarantMenu/"+ restuarants.info.id} key={restuarants.info.id} ><RestuarantCard   {...restuarants?.info} /></Link>
             )
           })
         }

@@ -4,8 +4,9 @@ import './App.css';
 import Header from './Components/Header';
 import Body from './Components/Body';
 import Footer from  './Components/Footer';
-import Help from "./Components/Help"
-import {createBrowserRouter, Outlet} from "react-router-dom"
+import Help from "./Components/Help";
+import RestuarantMenu from './Components/RestuarantMenu';
+import {createBrowserRouter, Outlet} from "react-router-dom";
 
 
 function App() {
@@ -31,6 +32,10 @@ const AppLayout = createBrowserRouter(
         {
           path: "/Help",
           element: <Help/>
+        },
+        {
+          path : "/RestuarantMenu/:resId",
+          element : <RestuarantMenu/>
         }
       ]
     },
