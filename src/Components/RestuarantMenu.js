@@ -1,4 +1,4 @@
-import {useEffect, useState} from "react";
+
 import Shimmer from "./Shimmer";
 // import { CLOUDINARY_IMG_ID, RESTUARANT_MENU_API } from "./Constants";
 import { useParams } from "react-router-dom";
@@ -18,8 +18,7 @@ const RestuarantMenu = () => {
     const { name, cuisines, costForTwoMessage } =
     resInfo?.cards[0]?.card?.card?.info;
 
-  const { itemCards } =
-    resInfo?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[1]?.card?.card;
+  
 
   const categories =
     resInfo?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards.filter(
@@ -39,7 +38,7 @@ const RestuarantMenu = () => {
             </p>
 
             {
-                categories.map((category) =>  ( <RestuarantCategory data = {category.card?.card} /> ))
+                categories.map((category) =>  ( <RestuarantCategory key={category.card.card.title} data = {category.card?.card} /> ))
             }
 
         </div>
